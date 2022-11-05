@@ -1,5 +1,6 @@
 # Experiment-08- Encoders-and-decoders 
-### AIM: To implement 8 to 3 Encoder and  3to8 Decoder using verilog and validate its outputs
+### AIM: 
+To implement 8 to 3 Encoder and  3to8 Decoder using verilog and validate its outputs
 ### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
 ### SOFTWARE REQUIRED:   Quartus prime
 ### THEORY 
@@ -55,42 +56,82 @@ D7 = X Y Z
 ## Figure -04 8 to 3 Decoder implementation 
 
 ### Procedure
-/* write all the steps invloved */
+Step 1: Open Quartus II and select new project and choose the file location.
+
+Step 2: Module Declaration. Module should have the file name.
+
+Step 3: Input-Output Delecaration.
+
+Step 4: Use assign to define the functionality of logic circuits.
+
+Step 5: At the end give endmodule.
+
+Step 6: Run the program and choose RTL viewer to get RTL realization.
+
 
 
 
 ### PROGRAM 
 /*
 Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: K.Jhansi
+RegisterNumber:  212221230045
 */
-
+## Encoder:
+```
+module ex8(d0,d1,d2,d3,d4,d5,d6,d7,a,b,c);
+input d0,d1,d2,d3,d4,d5,d6,d7;
+output a,b,c;
+or(a,d4,d5,d6,d7);
+or(b,d2,d3,d6,d7);
+or(c,d1,d3,d5,d7);
+endmodule
+```
+## Decoder:
+```
+module ex8b(a,b,c,d0,d1,d2,d3,d4,d5,d6,d7);
+input a,b,c;
+output d0,d1,d2,d3,d4,d5,d6,d7;
+assign d0=(~a & ~b & ~c);
+assign d1=(~a & ~b & c);
+assign d2=(~a & b & ~c);
+assign d3=(~a & b & c);
+assign d4=(a & ~b & ~c);
+assign d5=(a & ~b & c);
+assign d6=(a & b & ~c);
+assign d7=(a & b& c);
+endmodule
+```
 
 
 
 
 
 ### RTL LOGIC  
-
-
-
+### Encoder:
+![output](output1.png)
+### Decoder:
+![output](output2.png)
 
 
 
 
 
 ### TIMING DIGRAMS  
-
-
-
-
-
+### Encoder:
+![output](output3.png)
+![output](output4.png)
+![output](output5.png)
+### Decoder:
+![output](output6.png)
 ### TRUTH TABLE 
-
-
+### Encoder:
+![output](output7.png)
+### Decoder:
+![output](output8.png)
 
 
 
 
 ### RESULTS 
+To implement 8 to 3 Encoder and 3to8 Decoder using verilog is successfully done.
